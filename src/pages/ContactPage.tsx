@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Clock, Send, Github, MessageCircle, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, Github, MessageCircle, Users } from 'lucide-react';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -55,8 +55,20 @@ const ContactPage: React.FC = () => {
                     <Mail />
                   </div>
                   <div className="method-info">
-                    <h3>社长微信号</h3>
-                    <p>z52cola0606pig</p>
+                    <h3>邮箱地址</h3>
+                    <p>contact@wenjianit.com</p>
+                    <p>admin@wenjianit.com</p>
+                  </div>
+                </div>
+
+                <div className="contact-method">
+                  <div className="method-icon">
+                    <Phone />
+                  </div>
+                  <div className="method-info">
+                    <h3>联系电话</h3>
+                    <p>+86 138-0000-0000</p>
+                    <p>工作日 9:00-18:00</p>
                   </div>
                 </div>
 
@@ -66,8 +78,8 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div className="method-info">
                     <h3>活动地点</h3>
-                    <p>养正中学三楼计算机教室</p>
-                    <p>每周二、四17:30-18:00</p>
+                    <p>计算机学院 A栋 301室</p>
+                    <p>每周三、五 19:00-21:00</p>
                   </div>
                 </div>
 

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useDarkMode } from '../hooks/useDarkMode';
-import { Moon, Sun, Code } from 'lucide-react';
+import { Code } from 'lucide-react';
 
 const Header: React.FC = () => {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const location = useLocation();
 
   const navItems = [
@@ -16,10 +14,10 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className={`header ${isDarkMode ? 'dark' : ''}`}>
+    <header className="header">
       <div className="header-content">
         <Link to="/" className="logo">
-          <Code className="logo-icon" />
+          <img src="/favicon.ico" className="logo-icon" />
           <div className="logo-text">
             <span className="logo-main">稳健IT社</span>
             <span className="logo-sub">Wenjian IT</span>
@@ -39,12 +37,6 @@ const Header: React.FC = () => {
             ))}
           </ul>
         </nav>
-        <button className="dark-mode-toggle" onClick={toggleDarkMode}>
-          {isDarkMode ? <Sun className="toggle-icon" /> : <Moon className="toggle-icon" />}
-          <span className="toggle-text">
-            {isDarkMode ? '浅色' : '深色'}
-          </span>
-        </button>
       </div>
     </header>
   );

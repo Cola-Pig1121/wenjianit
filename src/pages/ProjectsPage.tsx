@@ -1,29 +1,115 @@
-import React, { useState } from 'react';
-import { Github, ExternalLink, Star, Code, Smartphone, Globe, Database } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../utils/supabase';
+import { Github, ExternalLink, Code, Smartphone, Globe, Database } from 'lucide-react';
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  github: string;
+  demo: string;
+}
 
 const ProjectsPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [projects, setProjects] = useState<Project[]>([]);
 
-  const projects = [
-    {
-      id: 1,
-      title: '智能校园管理系统',
-      description: '基于React和Node.js开发的校园信息管理平台，包含学生管理、课程安排、成绩查询等功能',
-      image: '/placeholder.svg?height=200&width=300',
-      category: 'web',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/wenjianit/campus-system',
-      demo: 'https://campus.wenjianit.com',
-      stars: 45
-    }
-  ];
+  useEffect(() => {
+    const fetchProjects = async () => {
+      let { data: works, error } = await supabase
+        .from('works')
+        .select('id, title, description, image, category, github, demo')
+        .order('id');
+
+      if (error) {
+        console.error('Error fetching projects data:', error);
+        setProjects([
+          {
+            id: 1,
+            title: '智能校园管理系统',
+            description: '基于React和Node.js开发的校园信息管理平台，包含学生管理、课程安排、成绩查询等功能',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'web',
+            github: 'https://github.com/wenjianit/campus-system',
+            demo: 'https://campus.wenjianit.com'
+          }
+        ]);
+      } else {
+        if (works && works.length > 0) {
+          setProjects(works);
+        } else {
+          // 如果数据库为空，也使用模拟数据
+          setProjects([
+            {
+              id: 1,
+              title: '智能校园管理系统',
+              description: '基于React和Node.js开发的校园信息管理平台，包含学生管理、课程安排、成绩查询等功能',
+              image: '/placeholder.svg?height=200&width=300',
+              category: 'web',
+              github: 'https://github.com/wenjianit/campus-system',
+              demo: 'https://campus.wenjianit.com'
+            },
+            {
+              id: 2,
+              title: '移动学习助手',
+              description: 'Flutter开发的跨平台学习应用，支持在线课程、笔记管理、学习进度跟踪等功能',
+              image: '/placeholder.svg?height=200&width=300',
+              category: 'mobile',
+              github: 'https://github.com/wenjianit/learning-app',
+              demo: 'https://play.google.com/store/apps/learning-helper'
+            },
+            {
+              id: 3,
+              title: '数据可视化平台',
+              description: '基于D3.js和Python的数据分析可视化平台，支持多种图表类型和实时数据展示',
+              image: '/placeholder.svg?height=200&width=300',
+              category: 'data',
+              github: 'https://github.com/wenjianit/data-viz',
+              demo: 'https://dataviz.wenjianit.com'
+            },
+            {
+              id: 4,
+              title: '在线代码编辑器',
+              description: 'Web端代码编辑器，支持多种编程语言语法高亮、代码补全和在线运行功能',
+              image: '/placeholder.svg?height=200&width=300',
+              category: 'web',
+              github: 'https://github.com/wenjianit/code-editor',
+              demo: 'https://editor.wenjianit.com'
+            },
+            {
+              id: 5,
+              title: 'AI聊天机器人',
+              description: '基于自然语言处理的智能聊天机器人，支持多轮对话和知识问答',
+              image: '/placeholder.svg?height=200&width=300',
+              category: 'ai',
+              github: 'https://github.com/wenjianit/ai-chatbot',
+              demo: 'https://chat.wenjianit.com'
+            },
+            {
+              id: 6,
+              title: '区块链投票系统',
+              description: '基于以太坊的去中心化投票系统，确保投票过程的透明性和不可篡改性',
+              image: '/placeholder.svg?height=200&width=300',
+              category: 'blockchain',
+              github: 'https://github.com/wenjianit/blockchain-voting',
+              demo: 'https://vote.wenjianit.com'
+            }
+          ]);
+        }
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const categories = [
     { id: 'all', name: '全部项目', icon: Code },
     { id: 'web', name: 'Web开发', icon: Globe },
     { id: 'mobile', name: '移动应用', icon: Smartphone },
     { id: 'data', name: '数据分析', icon: Database },
-    { id: 'ai', name: '人工智能', icon: Star },
+    { id: 'ai', name: '人工智能', icon: Code },
     { id: 'blockchain', name: '区块链', icon: Code }
   ];
 
@@ -86,17 +172,8 @@ const ProjectsPage: React.FC = () => {
                 <div className="project-content">
                   <div className="project-header">
                     <h3 className="project-title">{project.title}</h3>
-                    <div className="project-stars">
-                      <Star className="star-icon" />
-                      <span>{project.stars}</span>
-                    </div>
                   </div>
                   <p className="project-description">{project.description}</p>
-                  <div className="project-technologies">
-                    {project.technologies.map((tech, index) => (
-                      <span key={index} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
                 </div>
               </div>
             ))}

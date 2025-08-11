@@ -23,6 +23,7 @@ const TeamPage: React.FC = () => {
 
       if (error) {
         console.error('Error fetching team data:', error);
+        // 如果数据库连接失败，使用模拟数据
         setTeam([
           { id: 1, name: '张三', image: '/placeholder.svg?height=200&width=200', description: '前端开发工程师，专注React开发' },
           { id: 2, name: '李四', image: '/placeholder.svg?height=200&width=200', description: '后端开发工程师，Node.js专家' },
@@ -35,6 +36,7 @@ const TeamPage: React.FC = () => {
         if (team && team.length > 0) {
           setTeam(team);
         } else {
+          // 如果数据库为空，也使用模拟数据
           setTeam([
             { id: 1, name: '张三', image: '/placeholder.svg?height=200&width=200', description: '前端开发工程师，专注React开发' },
             { id: 2, name: '李四', image: '/placeholder.svg?height=200&width=200', description: '后端开发工程师，Node.js专家' },
