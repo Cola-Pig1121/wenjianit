@@ -15,7 +15,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="mission-section">
+      {/* <section className="mission-section">
         <div className="container">
           <div className="mission-content">
             <div className="mission-text">
@@ -50,7 +50,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Values Section */}
       <section className="values-section">
@@ -90,7 +90,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="timeline-section">
+      {/* <section className="timeline-section">
         <div className="container">
           <h2 className="section-title">发展历程</h2>
           <div className="timeline">
@@ -146,10 +146,10 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Achievements Section */}
-      <section className="achievements-section">
+      {/* <section className="achievements-section">
         <div className="container">
           <h2 className="section-title">荣誉成就</h2>
           <div className="achievements-grid">
@@ -175,7 +175,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

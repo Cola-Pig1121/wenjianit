@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      {/* <section className="features-section">
         <div className="container">
           <h2 className="section-title">核心服务</h2>
           <div className="features-grid">
@@ -72,10 +72,10 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats Section */}
-      <section className="stats-section">
+      {/* <section className="stats-section">
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
@@ -96,7 +96,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Latest Updates */}
       <section className="updates-section">
@@ -105,14 +105,14 @@ const HomePage: React.FC = () => {
           <div className="updates-grid">
             <div className="update-card">
               <div className="update-date">2024.01</div>
-              <h3>春季招新开始</h3>
-              <p>稳健IT社2024年春季招新正式启动，欢迎对技术充满热情的同学加入我们</p>
+              <h3>秋季招新开始</h3>
+              <p>稳健IT社2025年春季招新正式启动，欢迎对技术充满热情的同学加入我们</p>
               <div className="update-tags">
                 <span className="tag">招新</span>
-                <span className="tag">2024</span>
+                <span className="tag">2025</span>
               </div>
             </div>
-            <div className="update-card">
+            {/* <div className="update-card">
               <div className="update-date">2023.12</div>
               <h3>年度项目展示</h3>
               <p>社团成员完成多个优秀项目，涵盖Web开发、移动应用、AI应用等领域</p>
@@ -129,7 +129,7 @@ const HomePage: React.FC = () => {
                 <span className="tag">分享会</span>
                 <span className="tag">前端</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
