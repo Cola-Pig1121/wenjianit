@@ -104,7 +104,7 @@ const HomePage: React.FC = () => {
           <h2 className="section-title">最新动态</h2>
           <div className="updates-grid">
             <div className="update-card">
-              <div className="update-date">2024.01</div>
+              <div className="update-date">2025.09</div>
               <h3>秋季招新开始</h3>
               <p>稳健IT社2025年春季招新正式启动，欢迎对技术充满热情的同学加入我们</p>
               <div className="update-tags">
