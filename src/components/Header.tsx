@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header-content">
         <Link to="/" className="logo" onClick={closeMenu}>
-          <img src="/favicon.ico" className="logo-icon" />
+          <img src="/favicon.ico" className="logo-icon" alt="稳健IT社 Logo" />
           <div className="logo-text">
             <span className="logo-main">稳健IT社</span>
             <span className="logo-sub">Wenjian IT</span>
