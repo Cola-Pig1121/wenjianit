@@ -13,6 +13,7 @@ const App: React.FC = () => {
     <Router>
       <div className="app">
         <Header />
+        <title className="site-title">稳健IT社</title>
         <main className="main-content">
           <Routes>
             <Route path="/" element={<HomePage />} />

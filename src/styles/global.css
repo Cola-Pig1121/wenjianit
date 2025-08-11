@@ -140,6 +140,46 @@ body {
   font-weight: 500;
 }
 
+/* 移动端菜单按钮 */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark-gray);
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+  z-index: 1002;
+  position: relative;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--light-blue);
+  color: var(--primary-blue);
+}
+
+.mobile-menu-btn:focus {
+  outline: none;
+  background: var(--light-blue);
+  color: var(--primary-blue);
+}
+
+/* 移动端遮罩层 */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.nav {
+  transition: var(--transition-normal);
+}
+
 .nav-list {
   display: flex;
   list-style: none;
@@ -304,10 +344,6 @@ img {
     padding: 0 var(--spacing-md);
   }
   
-  .nav-list {
-    gap: var(--spacing-md);
-  }
-  
   .page-title {
     font-size: 2rem;
   }
@@ -319,19 +355,84 @@ img {
   .logo-text {
     display: none;
   }
-}
-
-@media (max-width: 640px) {
+  
+  /* 移动端 */
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    width: 280px;
+    height: calc(100vh - 80px);
+    background: var(--white);
+    box-shadow: var(--shadow-xl);
+    transition: right var(--transition-normal);
+    z-index: 1001;
+    border-left: 1px solid rgba(0, 102, 255, 0.1);
+    overflow-y: auto;
+  }
+  
+  .nav-open {
+    right: 0 !important;
+  }
+  
   .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--spacing-lg);
+    height: 100%;
+  }
+  
+  .nav-item {
+    width: 100%;
+  }
+  
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-lg);
+    text-align: left;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+  }
+  
+  .nav-link.active::after {
     display: none;
   }
   
+  .nav-link.active {
+    background: var(--gradient-primary);
+    color: var(--white);
+  }
+  
+  .nav-link.active:hover {
+    background: var(--gradient-primary);
+    color: var(--white);
+  }
+}
+
+@media (max-width: 640px) {
   .page-title {
     font-size: 1.75rem;
   }
   
   .section-title {
     font-size: 1.5rem;
+  }
+  
+  .nav {
+    width: 100vw;
+    right: -100vw;
+  }
+  
+  .nav-open {
+    right: 0 !important;
   }
 }
 

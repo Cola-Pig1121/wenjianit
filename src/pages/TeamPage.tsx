@@ -79,17 +79,17 @@ const TeamPage: React.FC = () => {
                 <div className="stat-item">
                   <Users className="stat-icon" />
                   <div className="stat-info">
-                    <span className="stat-number">200+</span>
+                    <span className="stat-number">10+</span>
                     <span className="stat-text">总成员数</span>
                   </div>
                 </div>
-                <div className="stat-item">
+                {/* <div className="stat-item">
                   <Code className="stat-icon" />
                   <div className="stat-info">
                     <span className="stat-number">4</span>
                     <span className="stat-text">技术部门</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="overview-visual">
