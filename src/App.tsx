@@ -14,6 +14,7 @@ const App: React.FC = () => {
       <div className="app">
         <Header />
         <title className="site-title">稳健IT社</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<HomePage />} />
